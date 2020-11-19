@@ -6,6 +6,7 @@ const resetBoard = document.querySelector('.reset-board');
 const form = document.querySelector('form');
 const buttons = document.querySelectorAll('button');
 const cellsNumber = document.querySelector('.current-num-of-cells');
+const warningMessage = document.querySelector('.warning-message');
 
 // current color
 let backgroundColor = 'black';
@@ -15,12 +16,14 @@ let backgroundColor = 'black';
 
 // render table
 const createCells = (numberOfCells) => {
+  let opacity = 1;
   container.style.setProperty('--rows', numberOfCells);
   container.style.setProperty('--columns', numberOfCells);
   let cells = numberOfCells * numberOfCells;
   for(let i = 0; i < cells; i++) {
     const cell = document.createElement('div');
     cell.setAttribute('class', 'cell');
+    cell.style.setProperty('opacity', opacity);
     container.appendChild(cell);
   }
   
@@ -43,9 +46,9 @@ const blackColor = () => {
   return blackBackground;
 }
 
-const grayColor = () => {
-  let alpha = 1;
-  let grayBackgrooundColor = `rgba(0,0,0,0.${alpha})`;
+const grayColor = (el) => {
+  let opacity = 4;
+  let grayBackgrooundColor = `rgba(0,0,0,0.${opacity})`;
   return grayBackgrooundColor;
 }
 
@@ -77,9 +80,7 @@ const resetCells = () => {
 }
 
 
-
 // LISTENERS **************
-
 // reset btn
 resetBoard.addEventListener('click', () => {
   resetCells();
@@ -88,16 +89,13 @@ resetBoard.addEventListener('click', () => {
   blackBackground.classList.add('active');
 });
 
-
 const removeActiveClass = () => {
   buttons.forEach( btn => {
     btn.classList.remove('active');
   });
 }
 
-
 // color btn listeners
-
 colorBackground.addEventListener('click', (e) => {
   backgroundColor = 'random';
 
@@ -118,10 +116,6 @@ grayBackground.addEventListener('click', (e) => {
 });
 
 
-
-
-
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   resetCells();
@@ -130,6 +124,9 @@ form.addEventListener('submit', (e) => {
   form.reset();
   if(cells > 3 && cells <= 100) {
     createCells(cells);
+    warningMessage.textContent = '';
+  } else {
+    warningMessage.textContent = 'Please enter number between 4 and 100!';
   }
 });
 
