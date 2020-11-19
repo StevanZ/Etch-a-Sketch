@@ -63,4 +63,18 @@ container.addEventListener('mouseover', (e) => {
   }
 });
 
+// reset board
+const reset = () => {
+  let cells = container.children;
+  let cellsArray = [].slice.call(cells);
+  cellsArray.forEach(cell => {
+    cell.style.backgroundColor = 'transparent';
+  });
+}
+
+
+
+// LISTENERS **************
+
+
 
