@@ -64,7 +64,7 @@ container.addEventListener('mouseover', (e) => {
 });
 
 // reset board
-const reset = () => {
+const resetCells = () => {
   let cells = container.children;
   let cellsArray = [].slice.call(cells);
   cellsArray.forEach(cell => {
@@ -75,6 +75,12 @@ const reset = () => {
 
 
 // LISTENERS **************
+
+// reset btn
+resetBoard.addEventListener('click', () => {
+  resetCells();
+});
+
 
 
 
