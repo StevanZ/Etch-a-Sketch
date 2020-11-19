@@ -4,6 +4,8 @@ const blackBackground = document.querySelector('.black-background');
 const grayBackground = document.querySelector('.gray-background');
 const resetBoard = document.querySelector('.reset-board');
 const form = document.querySelector('form');
+const buttons = document.querySelectorAll('button');
+const cellsNumber = document.querySelector('.current-num-of-cells');
 
 // current color
 let backgroundColor = 'black';
@@ -21,6 +23,8 @@ const createCells = (numberOfCells) => {
     cell.setAttribute('class', 'cell');
     container.appendChild(cell);
   }
+  
+  cellsNumber.textContent = numberOfCells;
 }
 
 // color functions
@@ -29,13 +33,13 @@ const randomColor = () => {
   let g = Math.floor(Math.random() * 255);
   let b = Math.floor(Math.random() * 255);
 
-  let backgroundColor = `rbg(${r}${b}${g})`;
+  let backgroundColor = `rgb(${r},${b},${g})`;
   return backgroundColor;
 }
 
 
 const blackColor = () => {
-  let blackBackground = `rbg(0,0,0)`;
+  let blackBackground = `rgb(0,0,0)`;
   return blackBackground;
 }
 
@@ -57,7 +61,7 @@ container.addEventListener('mouseover', (e) => {
         e.target.style.backgroundColor = grayColor();
         break;
       case 'random':
-        e.target.style.backgroundColor = grayColor(); 
+        e.target.style.backgroundColor = randomColor(); 
         break;  
     }
   }
@@ -79,8 +83,54 @@ const resetCells = () => {
 // reset btn
 resetBoard.addEventListener('click', () => {
   resetCells();
+  removeActiveClass();
+  backgroundColor = 'black';
+  blackBackground.classList.add('active');
+});
+
+
+const removeActiveClass = () => {
+  buttons.forEach( btn => {
+    btn.classList.remove('active');
+  });
+}
+
+
+// color btn listeners
+
+colorBackground.addEventListener('click', (e) => {
+  backgroundColor = 'random';
+
+  removeActiveClass();
+  e.target.classList.add('active');
+});
+
+blackBackground.addEventListener('click', (e) => {
+  backgroundColor = 'black';
+  removeActiveClass();
+  e.target.classList.add('active');
+});
+
+grayBackground.addEventListener('click', (e) => {
+  backgroundColor = 'gray';
+  removeActiveClass();
+  e.target.classList.add('active');
 });
 
 
 
 
+
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  resetCells();
+
+  let cells = form[0].value;
+  form.reset();
+  if(cells > 3 && cells <= 100) {
+    createCells(cells);
+  }
+});
+
+createCells(16);

@@ -3,24 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sty">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="controls-wrapper">
-            <button class="color-background">RGB color</button>
-            <button class="black-background">Black</button>
-            <button class="gray-background">Gray</button>
-            <button class="reset-board">Reset</button>
-            <form>
-                <input type="number" placeholder="enter number of cells...">
-                <button class="submit">submit</button>
-            </form>
+            <div class="btn-wrappers">
+                <button class="color-background">RGB color</button>
+                <button class="black-background active">Black</button>
+                <button class="gray-background">Gray</button>
+                <button class="reset-board"><i class="far fa-trash-alt"></i></button>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <input type="number" placeholder="enter number of cells...">
+                    <button class="submit">submit</button>
+                </form>
+                <div class="label-wrapper">
+                    <label for="">Number of cells</label>
+                <div class="current-num-of-cells">32</div>
+                </div>
+            </div>
+            
         </div>
+        <div class="container"></div>
     </div>
     
-    <div class="container"></div>
+    
     
 
 
