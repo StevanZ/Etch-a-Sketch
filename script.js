@@ -16,14 +16,13 @@ let backgroundColor = 'black';
 
 // render table
 const createCells = (numberOfCells) => {
-  let opacity = 1;
   container.style.setProperty('--rows', numberOfCells);
   container.style.setProperty('--columns', numberOfCells);
   let cells = numberOfCells * numberOfCells;
   for(let i = 0; i < cells; i++) {
     const cell = document.createElement('div');
     cell.setAttribute('class', 'cell');
-    cell.style.setProperty('opacity', opacity);
+    cell.style.opacity = "0.1";
     container.appendChild(cell);
   }
   
@@ -47,8 +46,8 @@ const blackColor = () => {
 }
 
 const grayColor = (el) => {
-  let opacity = 4;
-  let grayBackgrooundColor = `rgba(0,0,0,0.${opacity})`;
+
+  let grayBackgrooundColor = `rgb(0,0,0)`;
   return grayBackgrooundColor;
 }
 
@@ -59,12 +58,15 @@ container.addEventListener('mouseover', (e) => {
     switch(backgroundColor) {
       case 'black':
         e.target.style.backgroundColor = blackColor();
+        e.target.style.opacity = "1";
         break;
       case 'gray':
         e.target.style.backgroundColor = grayColor();
+        e.target.style.opacity = parseFloat(e.target.style.opacity) + 0.1;
         break;
       case 'random':
-        e.target.style.backgroundColor = randomColor(); 
+        e.target.style.backgroundColor = randomColor();
+        e.target.style.opacity = "1"; 
         break;  
     }
   }
