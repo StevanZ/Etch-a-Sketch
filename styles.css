@@ -50,6 +50,7 @@ body {
 .cell {
    cursor: pointer;
    transition: 0.3s;
+   border: 1px solid #4647475c;
 }
 
 
@@ -58,6 +59,11 @@ button {
     border: none;
     color: #fff;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+
 }
 
 .submit {
@@ -79,7 +85,10 @@ button {
 
 
 button:hover {
+   
     color: #6ab7ff;
+    animation: shake 0.2s  ease-in-out;
+    
 }
 
 .active {
@@ -151,6 +160,14 @@ label {
     text-transform: uppercase;
 }
 
+
+@keyframes shake {
+    0%   {transform: rotate(10deg);}
+    25%  {transform: rotate(15deg);}
+    50%  {transform: rotate(-10deg);}
+    75%  {transform: rotate(-15deg);}
+    100% {transform: rotate(0deg);}
+  }
 
 
 
