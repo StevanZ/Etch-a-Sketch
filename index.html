@@ -13,18 +13,15 @@
     <div class="wrapper">
         <div class="controls-wrapper">
             <div class="btn-wrappers">
-                <button class="color-background">RGB color</button>
-                <button class="black-background active">Black</button>
-                <button class="gray-background">Gray</button>
+                <button class="color-background">random color</button>
+                <button class="black-background active">black color</button>
+                <button class="gray-background">gradient</button>
                 <button class="reset-board"><i class="far fa-trash-alt trash"></i></button>
             </div>
             <div class="form-wrapper">
-                <form>
-                    <input type="number" placeholder="enter number of cells...">
-                    <button class="submit">submit</button>
-                </form>
+                <input min="4" max="60" type="range" class="range">
                 <div class="label-wrapper">
-                    <label for="">Number of cells</label>
+                    <label for="">scale</label>
                 <div class="current-num-of-cells">32</div>
                 </div>
             </div>

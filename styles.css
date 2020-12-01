@@ -49,9 +49,8 @@ body {
 
 .cell {
    cursor: pointer;
+   transition: 0.3s;
 }
-
-
 
 
 button {
@@ -79,10 +78,6 @@ button {
 }
 
 
-
-
-
-
 button:hover {
     color: #6ab7ff;
 }
@@ -105,10 +100,10 @@ button:hover {
 }
 
 input {
-    background: #2e343d;
+    background: #66b1ff;
     border: none;
     outline: none;
-    height: 32px;
+    height: 2px;
     border-radius: 4px;
     -webkit-appearance: none;
     margin: 0;
@@ -153,7 +148,9 @@ input:placeholder {
 label {
     color: #ccc;
     margin-right: 10px;
+    text-transform: uppercase;
 }
+
 
 
 
