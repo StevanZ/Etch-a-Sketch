@@ -8,6 +8,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'PT Sans', sans-serif;
+    background: #3a414c;
 }
 
 .heading {
@@ -21,7 +22,6 @@ span {
 
 .wrapper {
     width: 100vw;
-    min-height: 700px;
     background: #3a414c;
     display: flex;
     flex-direction: column;
@@ -89,9 +89,8 @@ button {
 }
 
 
-button:hover {
-
-    animation: shake 0.4s  ease-in;
+button:hover:not(.active) {
+   color: #6ab7ff;
 }
 
 .active {
@@ -164,12 +163,12 @@ label {
 }
 
 
-@keyframes shake {
+/* @keyframes shake {
     0%   {transform: rotate(7deg);}
     25%  {transform: rotate(-14deg);}
     75%  {transform: rotate(14deg);}
     140% {transform: rotate(-14deg);}
-  }
+  } */
 
 
 
