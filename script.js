@@ -89,6 +89,7 @@ resetBoard.addEventListener('click', () => {
   createCells(30);
   blackColor();
   removeActiveClass();
+  range.value = 30;
   blackBackground.classList.add('active');
 });
 
